@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Website</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            min-height: 100vh;
+            width: 100%;
+            background: #f8f8f8;
+        }
+        header{
+            height: 60px;
+            width: 100%;
+            background: #222121;
+            color: #f8f8f8;
+            display: flex;
+            align-items: center;
+
+        }
+        .container{
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        nav ul li{
+            list-style: none;
+            display: inline;
+            margin-right: 20px;
+            font-weight: 550;
+        }
+        .logo{
+            font-size: 24px;
+        }
+        .hero{
+            width: 100%;
+            height: auto;
+            background: url("https://foodphotographymumbai.com/blog/wp-content/uploads/2021/09/chickenbiryani.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color:aliceblue;
+            text-align: center;
+            padding: 140px 0;
+            margin-bottom: 20px;
+        }
+        .hero h2{
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .hero p{
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .search-box{
+            max-width: 550px;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .search-box input{
+            width: 70%;
+            padding: 10px;
+            outline: none;
+            border: 0;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+            border: 1px solid rgb(245, 37, 9);
+        }
+        .search-box button{
+            padding: 10px 20px;
+            outline: none;
+            border: 0;
+            border-radius: 0px 5px 5px 0px;
+            font-size: 1rem;
+            background: rgb(245, 37, 9);
+            color: antiquewhite;
+
+        }
+        /* ...........recipe section............ */
+        .recipes{
+            padding: 50px 0;
+        }
+        .recipes h1{
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .recipe-section{
+            width: 90%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            column-gap: 10px;
+        }
+        .recipe-card{
+            background: #f8f8f8;
+            margin: 30px 10px;
+            border-radius: 10px;
+            border: 1px solid rgb(158, 153, 153);
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .recipe-card img{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .recipe-card h2{
+            font-size: 22px;
+            padding: 20px;
+        }
+        .recipe-card p{
+            font-size: 18px;
+            padding: 20px;
+        }
+        .recipe-card a{
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: #333;
+            color: #f8f8f8;
+            padding: 15px 0;
+            cursor: pointer;
+        }
+        footer{
+            background: #333;
+            padding: 20px 0;
+            color: #f8f8f8;
+            text-align: center;
+        }
+        .nav-list a {
+            color: #f8f8f8;  
+            text-decoration: none;
+            padding: 0 10px;
+        }   
+
+        .nav-list a:hover {
+              color: #ff6347;
+              text-decoration: underline;
+        }
+        /* Modal Styling */
+#recipeModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+#recipeModal div {
+    background: white;
+    padding: 20px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    border-radius: 8px;
+}
+
+#closeModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #555;
+}
+
+#modalTitle {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+#modalImage {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+#modalDescription {
+    font-size: 1rem;
+    color: #666;
+}
+
+
+    </style>
+    
+    
+</head>
+<body>
+    <header>
+        <div class="container" id="home">
+            <h1 class="logo">Delicious Recipe</h1>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#recipes">Recipe</a></li>
+                    <li><a href="contact1.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+    
+    <!-- hero section -->
+    <section class="hero" id="about">
+        <div class="hero-section">
+            <h2>Welcome to our Recipe Collection.!</h2>
+            <p>Search mouth watering recipes to satisfy your craving</p>
+            <form action="#" class="search-box">
+                <input type="text" placeholder="Search Recipe">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </section>
+    <!-- recipe section -->
+    <section class="recipes" id="recipes">
+        <h1>Featured Recipes</h1>
+        <div class="recipe-section">
+            <div class="recipe-card">
+                <img src="food img\dish-1.jpg" alt="1">
+                <h2>Strawberry Custard</h2>
+                <p>Lorem ipsum,curd,creame,blueberry,strawberry</p>
+                <a href="#">View Recipe</a>
+            </div>
+            <div class="recipe-card">
+                <img src="food img\dish-2.jpg" alt="2">
+                <h2>Egg Curryy</h2>
+                <p>Egg,tomato curry,spices,lemon,coriander,</p>
+                <a href="#">View Recipe</a>
+            </div>
+            <div class="recipe-card">
+                <img src="food img\dish-3.jpg" alt="3">
+                <h2>Grilled Chicken</h2>
+                <p>chicken legs,soy sauce,spices,lemon,grilled thrilled
+                </p>
+                <a href="#">View Recipe</a>
+            </div>
+             <div class="recipe-card">
+                <img src="https://th.bing.com/th?id=OIP.H9vUnzYvLXYtyF6Ypc1DLQAAAA&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Chocolate Cake">
+                <h2>Chocolate Cake</h2>
+                <p>A rich and moist chocolate cake topped with creamy chocolate frosting.</p>
+                <a href="#">View Recipe</a>
+            </div>
+            <div class="recipe-card">
+                <img src="https://th.bing.com/th?id=OSK.c98f298613749dda243bf52b7e1b097b&w=164&h=246&rs=2&qlt=80&o=6&cdv=1&dpr=1.3&pid=16.1" alt="Pasta Primavera">
+                <h2>Pasta Primavera</h2>
+                <p>A fresh and vibrant pasta dish with seasonal vegetables and a light sauce.</p>
+                <a href="#">View Recipe</a>
+            </div>
+            
+          
+            <div class="recipe-card">
+                <img src="https://www.foodiecrush.com/wp-content/uploads/2019/09/Caesar-Salad-foodiecrush.com-017.jpg" alt="Caesar Salad">
+                <h2>Caesar Salad</h2>
+                <p>A classic Caesar salad with crispy lettuce, Parmesan, and creamy Caesar dressing.</p>
+                <a href="#">View Recipe</a>
+            </div>
+            
+            
+            <div class="recipe-card">
+                <img src="https://th.bing.com/th/id/OIP.1Xr2OkJdpGuaysQAOtn5YgHaLH?w=1280&h=1920&rs=1&pid=ImgDetMain" alt="Margarita Pizza">
+                <h2>Margarita Pizza</h2>
+                <p>A simple and flavorful pizza with fresh tomatoes, basil, and mozzarella cheese.</p>
+                <a href="#">View Recipe</a>
+            </div>
+          
+            <div class="recipe-card">
+                <img src="https://www.tasteofhome.com/wp-content/uploads/2017/11/shutterstock_645742051-1024x683.jpg" alt="Grilled Cheese Sandwich">
+                <h2>Grilled Cheese Sandwich</h2>
+                <p>Golden-brown grilled bread filled with melted cheese for a comforting snack.</p>
+                <a href="#">View Recipe</a>
+            </div>
+
+           
+            <div class="recipe-card">
+                <img src="https://www.cookingclassy.com/wp-content/uploads/2020/10/spaghetti-carbonara-4.jpg" alt="Spaghetti Carbonara">
+                <h2>Spaghetti Carbonara</h2>
+                <p>A classic Italian pasta dish with creamy egg sauce, pancetta, and Parmesan.</p>
+                <a href="#">View Recipe</a>
+            </div>
+
+          
+            <div class="recipe-card">
+                <img src="https://www.jessicagavin.com/wp-content/uploads/2020/07/avocado-toast-9.jpg" alt="Avocado Toast">
+                <h2>Avocado Toast</h2>
+                <p>Toast topped with mashed avocado, cherry tomatoes, and a sprinkle of salt.</p>
+                <a href="#">View Recipe</a>
+            </div>
+
+        
+            <div class="recipe-card">
+                <img src="https://th.bing.com/th/id/OIP.i5hnOX70ja8EPY__R5jFqgHaLH?w=768&h=1152&rs=1&pid=ImgDetMain" alt="Blueberry Pancakes">
+                <h2>Blueberry Pancakes</h2>
+                <p>Fluffy pancakes filled with juicy blueberries and topped with maple syrup.</p>
+                <a href="#">View Recipe</a>
+            </div>
+
+           
+            <div class="recipe-card">
+                <img src="https://i1.wp.com/garlicmatters.com/wp-content/uploads/2016/06/Fresh-Tomato-Soup-2.jpg?resize=1360%2C2040" alt="Tomato Soup">
+                <h2>Tomato Soup</h2>
+                <p>A comforting bowl of tomato soup with basil and a hint of garlic,coriander.</p>
+                <a href="#">View Recipe</a>
+            </div>
+        </div>
+    </section>
+   
+
+    <footer>
+        <div>
+            <p>&copy;2024 Delicious Recipe</p>
+            <p>lakshmi kashyap</p>
+        </div>
+    </footer>
+    <!-- Modal Structure -->
+    <div id="recipeModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center;">
+        <div style="background: white; padding: 20px; max-width: 500px; width: 90%; position: relative;">
+            <span id="closeModal" style="position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 24px;">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <img id="modalImage" src="" alt="" style="width: 100%; height: auto; margin-bottom: 15px;">
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+    <script>
+        // Wait for the document to load
+        document.addEventListener("DOMContentLoaded", function() {
+            const modal = document.getElementById("recipeModal");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalImage = document.getElementById("modalImage");
+            const modalDescription = document.getElementById("modalDescription");
+            const closeModal = document.getElementById("closeModal");
+    
+            // Event listener for "View Recipe" buttons
+            document.querySelectorAll(".recipe-card a").forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    
+                    // Get data from the clicked recipe card
+                    const card = this.closest(".recipe-card");
+                    const title = card.querySelector("h2").textContent;
+                    const imageSrc = card.querySelector("img").src;
+                    const description = card.querySelector("p").textContent;
+    
+                    // Populate the modal with data
+                    modalTitle.textContent = title;
+                    modalImage.src = imageSrc;
+                    modalDescription.textContent = description;
+    
+                    // Show the modal
+                    modal.style.display = "flex";
+                });
+            });
+    
+            // Event listener to close the modal
+            closeModal.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+    
+            // Close the modal when clicking outside the modal content
+            window.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
